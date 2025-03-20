@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm install --legacy-peer-deps"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
@@ -18,8 +19,8 @@
     "next": "15.2.3",
     "npm": "^11.2.0",
     "ogl": "^1.0.11",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwind-merge": "^3.0.2",
     "tw-animate-css": "^1.2.4"
   },
