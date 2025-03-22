@@ -10,7 +10,7 @@ const MainLayout = () => {
     <div className="flex flex-col min-h-screen justify-center space-y-5">
       <div className="md:grid md:grid-cols-2 flex flex-col">
         <div className="flex flex-col gap-2 justify-center max-w-lg">
-          <span className="pointer-events-none  z-10 whitespace-pre-wrap bg-gradient-to-r from-gray-300 via-gray-500 to-white animate-pulse bg-clip-text text-center text-2xl md:text-5xl font-bold leading-none tracking-tighter text-transparent">
+          <span className="pointer-events-none  z-10 whitespace-pre-wrap bg-gradient-to-r from-gray-300 via-gray-500 to-white animate-pulse bg-clip-text text-center text-4xl md:text-5xl font-bold leading-none tracking-tighter text-transparent">
             Welcome to Pulu Pulu
           </span>
           <SpotlightCard>
@@ -22,7 +22,7 @@ const MainLayout = () => {
                 Get daily airdrop information & 24/7 active community members.
               </p>
               <RotatingText
-                onClick={() => window.open("https://t.me/pulupulu")}
+                onClick={() => window.open("https://discord.gg/Pulu")}
                 texts={[
                   "Join Our Community!",
                   "Airdrop!",
@@ -42,7 +42,7 @@ const MainLayout = () => {
             </div>
           </SpotlightCard>
         </div>
-        <div className="mx-auto flex flex-col p-4 w-[400px] bg-black border border-white h-[400px] rounded-lg items-center space-y-5">
+        <div className="mx-auto flex flex-col p-4 w-[400px] place-items-center border-white rounded-lg items-center space-y-5">
           <DiscordMembers />
         </div>
       </div>

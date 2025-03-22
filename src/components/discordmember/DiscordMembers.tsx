@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import CountUp from "../countUp/CountUp";
 
 interface Member {
   id: string;
@@ -53,29 +54,37 @@ export default function DiscordMembers() {
 
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-6">Our Member</h2>
+      <div className="text-2xl font-bold mb-6">
+        Meet our{" "}
+        <CountUp
+          from={0}
+          to={100}
+          separator=","
+          direction="up"
+          duration={1}
+          className="count-up-text"
+        />
+        + Members
+      </div>
 
-      {/* <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"> */}
-      <Marquee>
-        {members.map((member) => (
-          <div
-            key={member.id}
-            className="border rounded-lg p-4 flex items-center space-x-4"
-          >
-            <div className="relative w-12 h-12 rounded-full overflow-hidden">
-              <Image
-                unoptimized
-                src={member.avatarUrl}
-                alt={`${member.username}'s avatar`}
-                fill
-                sizes="48px"
-                className="object-cover"
-              />
+      <div className="border-y">
+        <Marquee>
+          {members.map((member) => (
+            <div key={member.id} className=" p-4 flex items-center space-x-4">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                <Image
+                  unoptimized
+                  src={member.avatarUrl}
+                  alt={`${member.username}'s avatar`}
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Marquee>
+          ))}
+        </Marquee>
+      </div>
     </div>
-    // </div>
   );
 }
