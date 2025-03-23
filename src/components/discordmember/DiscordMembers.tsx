@@ -45,10 +45,6 @@ export default function DiscordMembers() {
     fetchMembers();
   }, []);
 
-  if (loading) {
-    return <div className="text-center py-8">Loading members...</div>;
-  }
-
   if (error) {
     return <div className="text-center py-8 text-red-500">{error}</div>;
   }
@@ -66,18 +62,27 @@ export default function DiscordMembers() {
         />
       </div>
       <SpotlightCard>
-        <div className="font-semibold relative z-10 text-center">
-          Meet our{" "}
-          <CountUp
-            from={0}
-            to={100}
-            separator=","
-            direction="up"
-            duration={1}
-            className="count-up-text text-purple-500 text-xl"
-          />
-          + Members
-        </div>
+        {loading ? (
+          <>
+            <div className="text-center py-8">Loading members...</div>;
+          </>
+        ) : (
+          <>
+            <div className="font-semibold relative z-10 text-center">
+              Meet our{" "}
+              <CountUp
+                from={0}
+                to={100}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text text-purple-500 text-xl"
+              />
+              + Members
+            </div>
+          </>
+        )}
+
         <div className="relative   z-10">
           <Marquee>
             {members.map((member) => (
@@ -89,7 +94,7 @@ export default function DiscordMembers() {
                     alt={`${member.username}'s avatar`}
                     fill
                     sizes="48px"
-                    className="object-cover"
+                    className="object-cover "
                   />
                 </div>
               </div>
