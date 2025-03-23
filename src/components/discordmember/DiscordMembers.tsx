@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import CountUp from "../countUp/CountUp";
+import SpotlightCard from "../spotlightCard/SpotlightCard";
 
 interface Member {
   id: string;
@@ -53,38 +54,49 @@ export default function DiscordMembers() {
   }
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="text-2xl font-bold mb-6">
-        Meet our{" "}
-        <CountUp
-          from={0}
-          to={100}
-          separator=","
-          direction="up"
-          duration={1}
-          className="count-up-text"
+    <div className="container mx-auto py-8 rounded-lg border-2 border-gray-600 px-10 shadow-lg shadow-purple-700 relative">
+      <div className="absolute inset-y-0 left-0 right-0 bg-black opacity-50 h-full z-0"></div>
+      <div className="flex justify-center relative z-10">
+        <Image
+          src={"/images/logo.png"}
+          width={200}
+          height={150}
+          alt="logo"
+          className="object-cover hidden md:block"
         />
-        + Members
       </div>
-
-      <div className="border-y">
-        <Marquee>
-          {members.map((member) => (
-            <div key={member.id} className=" p-4 flex items-center space-x-4">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                <Image
-                  unoptimized
-                  src={member.avatarUrl}
-                  alt={`${member.username}'s avatar`}
-                  fill
-                  sizes="48px"
-                  className="object-cover"
-                />
+      <SpotlightCard>
+        <div className="font-semibold relative z-10 text-center">
+          Meet our{" "}
+          <CountUp
+            from={0}
+            to={100}
+            separator=","
+            direction="up"
+            duration={1}
+            className="count-up-text text-purple-500 text-xl"
+          />
+          + Members
+        </div>
+        <div className="relative   z-10">
+          <Marquee>
+            {members.map((member) => (
+              <div key={member.id} className="p-4 flex items-center space-x-4">
+                <div className="relative w-12 h-12 rounded-lg overflow-hidden">
+                  <Image
+                    unoptimized
+                    src={member.avatarUrl}
+                    alt={`${member.username}'s avatar`}
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </Marquee>
-      </div>
+            ))}
+          </Marquee>
+        </div>
+      </SpotlightCard>
     </div>
   );
 }

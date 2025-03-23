@@ -3,14 +3,22 @@ import DiscordMembers from "@/components/discordmember/DiscordMembers";
 import RotatingText from "@/components/rotatingText/rotatingText";
 import SpotlightCard from "@/components/spotlightCard/SpotlightCard";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import React from "react";
 
 const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen justify-center space-y-5">
       <div className="md:grid md:grid-cols-2 flex flex-col">
-        <div className="flex flex-col gap-2 justify-center max-w-lg">
-          <span className="pointer-events-none  z-10 whitespace-pre-wrap bg-gradient-to-r from-gray-300 via-gray-500 to-white animate-pulse bg-clip-text text-center text-4xl md:text-5xl font-bold leading-none tracking-tighter text-transparent">
+        <div className="flex flex-col place-items-center gap-2 justify-center max-w-lg space-y-3">
+          <Image
+            src={"/images/logo.png"}
+            width={200}
+            height={150}
+            alt="logo"
+            className="object-cover block md:hidden"
+          />
+          <span className="pointer-events-none  z-10 whitespace-pre-wrap bg-gradient-to-r from-purple-300 via-purple-500 to-white animate-pulse bg-clip-text text-center text-4xl md:text-5xl font-bold leading-none tracking-tighter text-transparent">
             Welcome to Pulu Pulu
           </span>
           <SpotlightCard>
@@ -29,7 +37,7 @@ const MainLayout = () => {
                   "Node Tutorial!",
                   "Learning By Doing!",
                 ]}
-                mainClassName="px-2 cursor-pointer sm:px-2 md:px-3 bg-gradient-to-r from-black via-gray-500 to-white animate-pulse font-semibold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                mainClassName="px-2 cursor-pointer sm:px-2 md:px-3 bg-gradient-to-r from-purple-300 via-purple-500 to-white animate-pulse font-semibold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}

@@ -12,6 +12,7 @@ export default function Home() {
         particleSpread={10}
         speed={0.1}
         alphaParticles={true}
+        particleColors={["#b148d9", "#aa6bc2", "#380f47", "#2f1e36"]}
         className="fixed inset-0 z-0" // Ensure particles are fixed
       />
       {/* Content on top of the particles */}
