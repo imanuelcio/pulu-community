@@ -2,6 +2,7 @@ import AnimatedContent from "@/components/animated/animated";
 import Particles from "@/components/backgrounds/background";
 import { Button } from "@/components/ui/button";
 import MainLayout from "@/Layouts/MainLayout";
+import ForumSection from "@/section/Threads";
 
 export default function Home() {
   return (
@@ -19,6 +20,9 @@ export default function Home() {
       <div className="relative z-10 flex items-center flex-col justify-center h-full text-white">
         <AnimatedContent>
           <MainLayout />
+        </AnimatedContent>
+        <AnimatedContent>
+          <ForumSection />
         </AnimatedContent>
       </div>
     </div>

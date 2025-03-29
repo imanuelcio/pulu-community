@@ -1,6 +1,3 @@
-// First, create a Discord API service
-// src/services/discordApi.ts
-
 import axios from "axios";
 
 // Types for Discord API responses
@@ -30,6 +27,15 @@ export interface DiscordGuild {
   name: string;
   icon: string | null;
   members?: DiscordGuildMember[];
+}
+
+// New types for Discord threads
+export interface DiscordThread {
+  id: string;
+  name: string;
+  owner_id: string;
+  message_count: number;
+  last_message_id: string;
 }
 
 class DiscordAPI {
@@ -64,10 +70,39 @@ class DiscordAPI {
     }
   }
 
+  // Get all active threads in a forum channel
+  async getActiveThreads(channelId: string): Promise<DiscordThread[]> {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/channels/${channelId}/threads/archived/public`,
+        { headers: this.getHeaders() }
+      );
+
+      console.log("Discord API response:", response.data); // Debugging log
+
+      return response.data.threads; // Returns only the thread list
+    } catch (error) {
+      console.error("Error fetching active threads:", error);
+      throw error;
+    }
+  }
+
+  // Get Discord user info
+  async getUserInfo(userId: string): Promise<DiscordUser | null> {
+    try {
+      const response = await axios.get(`${this.baseUrl}/users/${userId}`, {
+        headers: this.getHeaders(),
+      });
+      return response.data;
+    } catch (error) {
+      console.warn(`Failed to fetch user info for ${userId}`);
+      return null;
+    }
+  }
+
   // Helper to get avatar URL for a user
   getAvatarUrl(userId: string, avatarId: string | null): string {
     if (!avatarId) {
-      // Return default avatar
       const defaultAvatarNumber = parseInt(userId) % 5;
       return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNumber}.png`;
     }
