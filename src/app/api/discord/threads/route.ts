@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   try {
     const token = process.env.DISCORD_BOT_TOKEN;
-    const forumChannelId = process.env.DISCORD_FORUM_CHANNEL_ID;
+    const guildId = process.env.DISCORD_GUILD_ID;
 
-    if (!token || !forumChannelId) {
+    if (!token || !guildId) {
       console.error("Missing Discord bot token or forum channel ID");
       return NextResponse.json(
         { error: "Discord configuration missing" },
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     const discordApi = new DiscordAPI(token);
     console.log("Fetching threads from Discord API...");
 
-    const threads = await discordApi.getActiveThreads(forumChannelId);
+    const threads = await discordApi.getAllActiveGuildThreads(guildId);
     console.log("Threads fetched:", threads);
 
     if (!threads || threads.length === 0) {

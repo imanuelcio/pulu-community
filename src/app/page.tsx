@@ -1,5 +1,6 @@
 import AnimatedContent from "@/components/animated/animated";
 import Particles from "@/components/backgrounds/background";
+import Modal from "@/components/modal/Modal";
 import { Button } from "@/components/ui/button";
 import MainLayout from "@/Layouts/MainLayout";
 import ForumSection from "@/section/Threads";
@@ -18,6 +19,7 @@ export default function Home() {
       />
       {/* Content on top of the particles */}
       <div className="relative z-10 flex items-center flex-col justify-center h-full text-white">
+        <Modal />
         <AnimatedContent>
           <MainLayout />
         </AnimatedContent>

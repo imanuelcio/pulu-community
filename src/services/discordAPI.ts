@@ -73,16 +73,49 @@ class DiscordAPI {
   // Get all active threads in a forum channel
   async getActiveThreads(channelId: string): Promise<DiscordThread[]> {
     try {
+      // Get current timestamp in ISO8601 format
+      const currentTimestamp = new Date().toISOString();
+
       const response = await axios.get(
         `${this.baseUrl}/channels/${channelId}/threads/archived/public`,
+        {
+          headers: this.getHeaders(),
+          params: {
+            before: currentTimestamp,
+          },
+        }
+      );
+
+      return response.data.threads;
+    } catch (error) {
+      console.error("Error fetching active threads:", error);
+      throw error;
+    }
+  }
+  async getAllActiveGuildThreads(guildId: string): Promise<DiscordThread[]> {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/guilds/${guildId}/threads/active`,
         { headers: this.getHeaders() }
       );
 
-      console.log("Discord API response:", response.data); // Debugging log
-
-      return response.data.threads; // Returns only the thread list
+      return response.data.threads;
     } catch (error) {
-      console.error("Error fetching active threads:", error);
+      console.error("Error fetching all active guild threads:", error);
+      throw error;
+    }
+  }
+  async getThreadInfo(threadId: string): Promise<any> {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/channels/${threadId}/messages?limit=100`,
+        {
+          headers: this.getHeaders(),
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log("Error fetching thread info:", error);
       throw error;
     }
   }

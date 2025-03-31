@@ -1,5 +1,6 @@
 "use client";
 import DiscordMembers from "@/components/discordmember/DiscordMembers";
+import Modal from "@/components/modal/Modal";
 import RotatingText from "@/components/rotatingText/rotatingText";
 import SpotlightCard from "@/components/spotlightCard/SpotlightCard";
 import { Button } from "@/components/ui/button";
@@ -10,7 +11,7 @@ const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen justify-center space-y-5">
       <div className="md:grid md:grid-cols-2 flex flex-col">
-        <div className="flex flex-col place-items-center gap-2 justify-center max-w-lg space-y-3">
+        <div className="flex flex-col place-items-center gap-2 justify-center space-y-3">
           <Image
             src={"/images/logo.png"}
             width={200}

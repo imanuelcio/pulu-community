@@ -51,7 +51,7 @@ export default function DiscordMembers() {
 
   return (
     <div className="container mx-auto py-8 rounded-lg border-2 border-gray-600 px-10 shadow-lg shadow-purple-700 relative">
-      <div className="absolute inset-y-0 left-0 right-0 bg-black opacity-50 h-full z-0"></div>
+      {/* <div className="absolute inset-y-0 left-0 right-0 bg-black opacity-50 h-full z-0"></div> */}
       <div className="flex justify-center relative z-10">
         <Image
           src={"/images/logo.png"}

@@ -2,6 +2,7 @@
 "use client";
 import BlurText from "@/components/blurTextAnimation";
 import { processThreadsData, ThreadData } from "@/lib/discordUtils";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const ForumSection = () => {
@@ -51,13 +52,13 @@ const ForumSection = () => {
               <p className="text-gray-600">{thread.message_count}</p>
               <p className="text-gray-200">pesan diskusi</p>
             </span>
-            <a
+            <Link
               target="_blank"
-              href={`https://discord.gg/Pulu`}
+              href={`/forum/${thread.id}`}
               className="text-blue-500 hover:underline"
             >
               View Thread
-            </a>
+            </Link>
           </div>
         ))}
       </div>
