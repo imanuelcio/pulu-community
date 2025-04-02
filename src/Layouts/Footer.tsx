@@ -149,7 +149,11 @@ const Footer: React.FC = () => {
                   />
                 </svg>
               </a> */}
-              <a href="#" className="hover:text-blue-300 transition-colors">
+              <a
+                target="_blank"
+                href="https://twitter.com/PuluNetwork"
+                className="hover:text-blue-300 transition-colors"
+              >
                 <svg
                   className="w-6 h-6"
                   fill="currentColor"
@@ -256,9 +260,10 @@ const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
+            <h3 className="text-lg font-semibold mb-4">Hang out with me!</h3>
             <p className="text-sm mb-4">
-              Sign up for our newsletter to get the latest updates.
+              Say Hi to me, I will reply you as soon as possible for
+              Collaboration!
             </p>
             <form className="flex flex-col space-y-2">
               <input
@@ -266,11 +271,12 @@ const Footer: React.FC = () => {
                 placeholder="Your email"
                 className="px-4 py-2 bg-blue-800 bg-opacity-50 border border-blue-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+
               <button
                 type="submit"
                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded transition-colors"
               >
-                Subscribe
+                Submit
               </button>
             </form>
           </div>

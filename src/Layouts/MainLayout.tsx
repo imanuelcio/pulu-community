@@ -66,7 +66,7 @@ const MainLayout = () => {
               className="bg-white object-cover rounded-xl hover:bg-pink-500"
             />
             <span>
-              <p className="text-pink-300">Follor our X</p>
+              <p className="text-pink-300">Follow our X</p>
               <p className="text-gray-400">@PuluNetwork</p>
             </span>
           </div>
