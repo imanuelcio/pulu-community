@@ -50,6 +50,22 @@ const MainLayout = () => {
               />
             </div>
           </SpotlightCard>
+          <div
+            className="flex gap-2 mt-5 animate-bounce cursor-pointer"
+            onClick={() => window.open("https://twitter.com/PuluNetwork")}
+          >
+            <Image
+              src={"/icons/twitter.svg"}
+              alt="discord"
+              width={50}
+              height={50}
+              className="bg-white object-cover rounded-xl hover:bg-pink-500"
+            />
+            <span>
+              <p className="text-pink-300">Follor our X</p>
+              <p className="text-gray-400">@PuluNetwork</p>
+            </span>
+          </div>
         </div>
         <div className="mx-auto flex flex-col p-4 w-[400px] place-items-center border-white rounded-lg items-center space-y-5">
           <DiscordMembers />

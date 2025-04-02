@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import CountUp from "../countUp/CountUp";
 import SpotlightCard from "../spotlightCard/SpotlightCard";
+import Spinner from "../spinner/LoadingSpinner";
 
 interface Member {
   id: string;
@@ -64,7 +65,7 @@ export default function DiscordMembers() {
       <SpotlightCard>
         {loading ? (
           <>
-            <div className="text-center py-8">Loading members...</div>;
+            <Spinner />
           </>
         ) : (
           <>
